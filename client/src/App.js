@@ -1,24 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Route } from 'react-router-dom';
+import LoginForm from './components/LoginForm';
+import Todos from './components/Todos';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>
+        Todo Web App
+      </h1>
+      
+      <Route path='/' exact render={(props)=>(
+        <LoginForm {...props} />
+      )} />
+
+      <Route path='/todos' exact render={(props)=>(
+        <div>
+          <Todos {...props} />
+        </div>
+      )} />
+
     </div>
   );
 }
