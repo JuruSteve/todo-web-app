@@ -3,6 +3,8 @@ const helmet = require('helmet')
 const cors = require('cors')
 const morgan = require('morgan')
 
+const AuthRouter = require('../routes/auth-router')
+const TodosRouter = require('../routes/todos-router')
 
 const server = express()
 
@@ -16,5 +18,12 @@ server.use(morgan('dev'))
 server.get('/', (req, res)=>{
     res.end('Welcome to RCP Test Project');
 })
+
+// auth routes (Register, Login)
+server.use('/api/auth', AuthRouter)
+
+// todo routes
+server.use('/api/todos', TodosRouter)
+
 
 module.exports = server;
