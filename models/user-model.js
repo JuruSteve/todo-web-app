@@ -11,7 +11,15 @@ function findBy(username){
     return db.query(sql, username)
 }
 
+function findById(id){
+    let sql = 'SELECT * FROM users WHERE id = ?'
+    return db.query(sql, id)
+}
+
+
+
 module.exports = {
     add,
-    findBy
+    findBy,
+    findById
 }

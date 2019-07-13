@@ -1,8 +1,9 @@
 const db = require('../database/config')
 
-function add(item){
-    let sql = 'INSERT INTO todos(text) VALUES(?);';
-    return db.query(sql,[item])
+function add(item, id){
+    console.log(id)
+    let sql = `INSERT INTO todos(text) VALUES(?);`;
+    return db.query(sql,[`'${item}'`])
 }
 
 async function getItems(){

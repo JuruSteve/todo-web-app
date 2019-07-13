@@ -31,3 +31,17 @@
     transform: rotate(360deg);
   }
 }
+
+.nav {
+  justify-content: flex-end;
+  background-color: #282c34;
+}
+
+.nav > li > a {
+  color: white
+}
+
+.nav > li > a:hover {
+  color: white;
+  font-weight: 600
+}

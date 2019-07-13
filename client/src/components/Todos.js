@@ -1,5 +1,7 @@
 import React,{useState, useEffect} from 'react';
 import axios from 'axios';
+import axiosWithAuth from './utils/withAxios';
+
 import './Todos.css';
 
 const Todos = () => {
@@ -9,7 +11,7 @@ const Todos = () => {
   const saveTodos = async (val)=>{
     try {
       setTodos([{text:val}, ...todos]);
-      await axios.post('http://localhost:5000/api/todos/add',{text: val});
+      await axiosWithAuth().post('http://localhost:5000/api/todos/add',{text: val});
     } catch (error) {
       console.log('err', error);
     }
@@ -17,7 +19,7 @@ const Todos = () => {
   
   const getTodos = async ()=>{
     try {
-      const response = await axios.get('http://localhost:5000/api/todos/');
+      const response = await axiosWithAuth().get('http://localhost:5000/api/todos/');
       const newTodos = response.data.result;
       
       // update the todos list in state
@@ -75,6 +77,6 @@ const TodoForm = ({addTodo}) => {
     )
   }
 
-export default Todos
+export default Todos;
 
 

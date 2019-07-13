@@ -1,8 +1,8 @@
-const router = require('express').Router()
-const todos = require('../controllers/todos')
+const router = require('express').Router();
+const todos = require('../controllers/todos');
 
-router.post('/add', todos.add)
+router.post('/add', todos.add);
 
-router.get('/', todos.find)
+router.get('/', todos.find);
 
-module.exports = router
+module.exports = router;

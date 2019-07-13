@@ -16,7 +16,7 @@ const Form = (props) => {
     const password = useInputValue('');
 
     const submitForm = (username, password) => {
-        const endpoint = 'http://localhost:5000/api/auth/login';
+        const endpoint = `http://localhost:5000/api/auth/${props.login?'login':'register'}`;
       
         axios
           .post(endpoint, {username, password})
@@ -35,7 +35,7 @@ const Form = (props) => {
             }}>
                 <input type="text" {...username} placeholder="Username" required />
                 <input type="password" {...password} placeholder="Password" autoComplete="password" required />
-                <button type="submit">Submit</button>
+                <button type="submit">{props.login ? 'Login' : 'Register'}</button>
             </form>
     )
 }
